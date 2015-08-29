@@ -65,6 +65,12 @@ class TemplesController < ApplicationController
 		@temples = Temple.where("#{params[:genre]} LIKE ?", "%#{params[:query]}%")
 	end
 
+  def list
+    @temple = Temple.find(:id)
+    @sect   = @temple.region.sect
+    @description  = @temple.region.description
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_temple
