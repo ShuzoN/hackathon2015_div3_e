@@ -3,17 +3,6 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
-# Use sql as the database for Active Record
-# development & test
-group :development, :test do
-  gem 'sqlite3'
-end
-# production
-group :production do
-  gem 'pg'
-  gem'therubyracer-heroku'
-  gem 'thin'
-end
 
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -51,5 +40,18 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 	gem "ransack"
+# Use sql as the database for Active Record
+# development & test
+group :development, :test do
+  gem 'sqlite3'
+end
+# production
+group :production do
+  gem 'pg'
+  gem 'thin'
+end
+group :production, :staging do
+  gem 'rails_12factor'
+end
 end
 
