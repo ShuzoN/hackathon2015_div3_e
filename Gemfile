@@ -43,14 +43,13 @@ group :development, :test do
 # Use sql as the database for Active Record
 # development & test
 group :development, :test do
-  gem 'sqlite3'
+  gem 'sqlite3' , '1.3.10'
+
 end
 # production
 group :production do
   gem 'pg'
   gem 'thin'
-end
-group :production, :staging do
   gem 'rails_12factor'
 end
 end
