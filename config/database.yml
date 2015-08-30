@@ -20,11 +20,7 @@ test:
   <<: *default
   database: db/test.sqlite3
 
-staging:
-  <<: *default
-  database: db/staging.sqlite3
-
 production:
-  <<: *default
-  adapter: pg
+  encofing: utf8
+  adapter: postgresql
   database: db/production.pg
