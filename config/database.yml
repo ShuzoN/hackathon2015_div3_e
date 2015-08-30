@@ -27,4 +27,4 @@ staging:
 production:
   <<: *default
   adapter: pg
-  database: db/production.sqlite3
+  database: db/production.pg
