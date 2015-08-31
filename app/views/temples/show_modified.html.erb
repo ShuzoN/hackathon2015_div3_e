@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= stylesheet_link_tag "https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" %>
+    <%= javascript_include_tag "http://code.jquery.com/jquery-1.11.0.min.js" %>
+    <%= javascript_include_tag "https://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js" %>
+
+    <!-- Bootstrap -->
+    <%= stylesheet_link_tag "css/bootstrap.min.css", :rel=>"stylesheet" %>
+    <title>出家したい人のための情報サイト「成仏センス」</title>
+  </head>
+  <body id="page_temple">
+    <div id="home" data-role="page">
+      <div data-role="header" data-add-back-btn="false">
+        <h1>成仏センス</h1>
+
+        <div id="page_title">
+          <table> <tbody> <tr> <td>
+          <%= button_to "HOME", {:action => "index"},:data=>{:icon=>"home"}, :method => :get %>
+                </td><td>
+          <%= button_to "edit", {:action => "edit"},:data=>{:icon=>"edit"}, :method => :get %>
+</td> </tr> </tbody> </table>
+        </div>
+      </div>
+
+      <div role="main" class="ui-content">
+        <div id="temple_items">
+          <p><h2><%= @temple.name %></h2></p>
+          <table>
+            <tbody> <tr> <td>
+                  <%= image_tag "280px-Koshoji05s1800.jpg", :alt=>"", :class=>"img-responsive" %>
+                </td>
+                <td>
+                  <p><%= @temple.experience %></p>
+                </td> </tr> </tbody>
+          </table>
+          <div class="container">
+            <table class="table">
+              <tbody>
+                <tr>
+                  <th><h4>待遇</h4></th>
+                  <td>
+                    <h4>
+                      <span class="label label-default">食費<%= @temple.foodExpense %>円</span>
+                      <span class="label label-default">宿泊費<%= @temple.rent %>0円</span>
+                      <span class="label label-default">生活費支援<% @temple.wages ? "一部支援" : "なし"  %> </span>
+                      <span class="label label-default">衣装貸出<%= @temple.costume %></span>
+                      <span class="label label-default">駅から<%= @temple.distanceFromStation %>km</span>
+                    </h4>
+
+                  </td>
+                </tr>
+                <tr>
+                  <th><h4>勤務時間</h4></th>
+                  <td>
+                    <h4>
+                      <p><%= @temple.workingHours %>時間</p>
+                    </h4>
+                  </td>
+                </tr>
+                <tr>
+                  <th><h4>住所</h4></th>
+                  <td>
+                    <h4>
+                      <p><%= @temple.address %></p>
+                    </h4>
+                  </td>
+                </tr>
+                <tr>
+                  <th><h4>電話番号</h4></th>
+                  <td>
+                    <h4>
+                      <p><%= @temple.phoneNumber %></p>
+                    </h4>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div data-role="footer">
+        <h4>出家したい人のための情報サイト「成仏センス」</h4>
+      </div>
+    </div>
+
+    <div id="menu" data-role="page">
+      <div data-role="header">
+        <h1>メニュー</h1>
+      </div>
+      <div data-role="content">
+        <p>メニューです</p>
+        <p> <p><a href="#home" data-role="button" data-theme="b" data-transition="flip">ホームへ</a></p>
+      </div>
+
+      <div data-role="footer" class="ui-bar">
+        <h4>Copyright 2015</h4>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" %>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <%= javascript_include_tag "js/bootstrap.min.js" %>
+
+  </body>
+
+</html>
