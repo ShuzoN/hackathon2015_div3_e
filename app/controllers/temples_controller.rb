@@ -24,10 +24,14 @@ class TemplesController < ApplicationController
   # POST /temples
   # POST /temples.json
   def create
+    #temple_paramsに_formで書いたパラメタがハッシュとして入っている
     @temple = Temple.new(temple_params)
 
     respond_to do |format|
       if @temple.save
+        #redirect_to @temple -> redirect_to "temples/#{@temple.id}"
+        #redirect_to は改めてページにアクセス
+        #renderはviewファイルを出力して表示するだけ
         format.html { redirect_to @temple, notice: 'Temple was successfully created.' }
         format.json { render :show, status: :created, location: @temple }
       else
