@@ -32,16 +32,8 @@
     text-decoration: none;
 }
 
-#temple-items01 {
+#temple-items {
     background-color: #03003E;
-}
-
-#temple-items02 {
-    background-color: #930F28;
-}
-
-#temple-items03 {
-    background-color: #45931D;
 }
 
 #temple-status {
@@ -62,7 +54,7 @@
 
 .label-white {
     background-color: white;
-    color: #1A1A1A;
+    color: black;
     text-shadow: 0 0px 0px;
     text-decoration: none;
 }
