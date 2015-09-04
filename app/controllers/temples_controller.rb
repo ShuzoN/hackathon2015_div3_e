@@ -10,6 +10,7 @@ class TemplesController < ApplicationController
   # GET /temples/1
   # GET /temples/1.json
   def show
+    render :layout => 'show'
   end
 
   # GET /temples/new
@@ -33,7 +34,7 @@ class TemplesController < ApplicationController
         #redirect_to は改めてページにアクセス
         #renderはviewファイルを出力して表示するだけ
         format.html { redirect_to @temple }
-        format.json { render :show, status: :created, location: @temple }
+        format.json { render action: :show, status: :created, location: @temple }
       else
         format.html { render :new , layout: :show}
         format.json { render json: @temple.errors, status: :unprocessable_entity }
