@@ -1,16 +1,16 @@
 <div id="home" data-role="page">
 <%= image_tag 'header-image.png', :class=>"img-responsive" %>
+<script src="/assets/bootstrap.min.js"></script>
 <div  data-role="header" style="background:#03003E" >
   <%= link_to '戻る', {:action=>:index}, :data=>{:icon=>"carat-l",:role=>"button"}, :style=>"color:white; font-size:15px; border: 1px solid   #03003E ; background: #03003E ;text-shadow: 0 0px 0px #03003E ;text-decoration: none",:method => :get %>
   <h1 style="text-align:center ; text-shadow: 0 0px 0px #03003E ;text-decoration: none"><font size="5" color="#ffffff">寺の詳細</font></h1>
 </div>
 <center>
-  <%= image_tag @temple.picUrl , :class=>"img-responsive", :width=>"90%", :height=>"auto" %>
+  <%= image_tag @temple.picUrl , :class=>"img-responsive", :width=>"70%", :height=>"auto" %>
 </center>
 <!--一段階要素を内側に-->
 <div role="main" class="ui-content">
   <div id="sect_detail">
-    <p>興正寺では将来出家者として、仏教の教えを習得するために、地区最大規模の寺院である八事山興正寺で共に学び、人格の向上を目指す意欲ある一般の方々を募集しております。</p>
   </div>
   <%= image_tag "officialbutton.png", class:"img-responsive", width:"50%", style:"display: block; margin-left: auto; margin-right:auto;" %>
 </div>
@@ -22,10 +22,11 @@
     <ul class="media-list">
       <li>
         <a class="media-left" href="#">
-          <%= image_tag '280px-Koshoji05s1800.jpg', :class=>'media-object' %>
+  <%= image_tag @temple.picUrl , :class=>"img-responsive", :width=>"280", :height=>"100" %>
         </a>
         <div id="temple-description" class="media-body">
-
+          <p align='left'>得られる経験</p>
+          <br>
           <p><%= @temple.experience %></p>
         </div>
       </li>

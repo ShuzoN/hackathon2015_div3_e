@@ -33,13 +33,14 @@ class TemplesController < ApplicationController
         #redirect_to @temple -> redirect_to "temples/#{@temple.id}"
         #redirect_to は改めてページにアクセス
         #renderはviewファイルを出力して表示するだけ
-        format.html { redirect_to @temple }
+        format.html { redirect_to action: 'show', id: @temple.id}
         format.json { render action: :show, status: :created, location: @temple }
       else
         format.html { render :new , layout: :show}
         format.json { render json: @temple.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /temples/1
@@ -70,6 +71,8 @@ class TemplesController < ApplicationController
 		@temples = Temple.where("#{params[:genre]} LIKE ?", "%#{params[:query]}%")
 	end
 
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_temple
@@ -80,4 +83,5 @@ class TemplesController < ApplicationController
     def temple_params
      params.require(:temple).permit(:name, :ageLimit, :rent, :foodExpense, :minYears, :holiday, :phoneNumber, :workingHours, :distanceFromStation, :region, :picUrl, :costume, :address, :experience, :sponger, :wages, :region_id)
     end
+
 end
